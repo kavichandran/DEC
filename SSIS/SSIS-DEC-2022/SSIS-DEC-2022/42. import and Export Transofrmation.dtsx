@@ -1,0 +1,791 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/3/2023 7:17:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{FC6E28C8-5824-4DBA-892F-EE6B0E40E378}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="42  import and Export Transofrmation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{9D68074E-1E67-4E3F-8E08-C40413C77CC7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Image]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5F56E8D3-E6DB-483D-B471-192DA17DB953}"
+      DTS:ObjectName="Image">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Image source\ImageDetails.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ImagePath"
+              DTS:DTSID="{DBDC5C8A-8D4C-490C-8425-C07C211B1546}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Export"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8203D423-BF31-4266-AA15-F325FEBA1ECD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Export"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Export\Export Column"
+              componentClassID="Microsoft.Extractor"
+              contactInfo="Export Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Reads data from a data flow and insert it into a file. For example, create image files based on a database column that contains photographs."
+              name="Export Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Export\Export Column.Inputs[Export Column Input]"
+                  hasSideEffects="true"
+                  name="Export Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Export\Export Column.Inputs[Export Column Input].Columns[ImagePath]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="ImagePath"
+                      errorOrTruncationOperation="File Open"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImagePath]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column that contains the file data."
+                          name="FileDataColumnID">#{Package\Export\Export Column.Inputs[Export Column Input].Columns[Image]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to write a byte-order marker (BOM) to the file."
+                          name="WriteBOM">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to force truncation of an existing file."
+                          name="ForceTruncate">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to append data to an existing file."
+                          name="AllowAppend">true</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Export\Export Column.Inputs[Export Column Input].Columns[Image]"
+                      cachedDataType="image"
+                      cachedName="Image"
+                      errorOrTruncationOperation="File Write"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Image]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column that contains the file data."
+                          name="FileDataColumnID">#{Package\Export\0:invalid}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to write a byte-order marker (BOM) to the file."
+                          name="WriteBOM">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to force truncation of an existing file."
+                          name="ForceTruncate">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether to append data to an existing file."
+                          name="AllowAppend">true</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Export\Export Column.Outputs[Export Column Output]"
+                  exclusionGroup="1"
+                  name="Export Column Output"
+                  synchronousInputId="Package\Export\Export Column.Inputs[Export Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Export\Export Column.Outputs[Export Column Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Export Column Error Output"
+                  synchronousInputId="Package\Export\Export Column.Inputs[Export Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export\Export Column.Outputs[Export Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export\Export Column.Outputs[Export Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export\Export Column.Outputs[Export Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export\Export Column.Outputs[Export Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Export\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[import_images]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Export\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImagePath]"
+                      length="500"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImagePath]"
+                      name="ImagePath"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Image]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Image]"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Image]"
+                      name="Image"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ImagePath" />
+                    <externalMetadataColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Image]"
+                      dataType="image"
+                      name="Image" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImagePath]"
+                      name="ImagePath" />
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Image]"
+                      dataType="image"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Image]"
+                      name="Image" />
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Export.Paths[OLE DB Source Output]"
+              endId="Package\Export\Export Column.Inputs[Export Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Export\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\import"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9DD6A830-55A5-4DB1-9319-CA4B48B47784}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="import"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\import\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\import\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Image]"
+                  connectionManagerRefId="Package.ConnectionManagers[Image]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\import\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\import\Flat File Source.Outputs[Flat File Source Output].Columns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\import\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ImagePath]"
+                      length="500"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Output].Columns[ImagePath]"
+                      name="ImagePath"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\import\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ImagePath" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\import\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\import\Import Column"
+              componentClassID="Microsoft.Inserter"
+              contactInfo="Import Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Reads data from files and adds it to columns in a data flow. For example, use an input column of file paths to import photographs from a directory."
+              name="Import Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\import\Import Column.Inputs[Import Column Input]"
+                  name="Import Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\import\Import Column.Inputs[Import Column Input].Columns[ImagePath]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="ImagePath"
+                      errorOrTruncationOperation="File Open"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Output].Columns[ImagePath]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the output column to receive the file data."
+                          name="FileDataColumnID">#{Package\import\Import Column.Outputs[Import Column Output].Columns[Image]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="TRUE if the file is expected to begin with a BOM"
+                          name="ExpectBOM">false</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\import\Import Column.Outputs[Import Column Output]"
+                  exclusionGroup="1"
+                  name="Import Column Output"
+                  synchronousInputId="Package\import\Import Column.Inputs[Import Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\import\Import Column.Outputs[Import Column Output].Columns[Image]"
+                      dataType="image"
+                      errorOrTruncationOperation="File Read"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\import\Import Column.Outputs[Import Column Output].Columns[Image]"
+                      name="Image" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\import\Import Column.Outputs[Import Column Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Import Column Error Output"
+                  synchronousInputId="Package\import\Import Column.Inputs[Import Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\import\Import Column.Outputs[Import Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\import\Import Column.Outputs[Import Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\import\Import Column.Outputs[Import Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\import\Import Column.Outputs[Import Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\import\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[import_images]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\import\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ImagePath]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="ImagePath"
+                      externalMetadataColumnId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImagePath]"
+                      lineageId="Package\import\Flat File Source.Outputs[Flat File Source Output].Columns[ImagePath]" />
+                    <inputColumn
+                      refId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Image]"
+                      cachedDataType="image"
+                      cachedName="Image"
+                      externalMetadataColumnId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Image]"
+                      lineageId="Package\import\Import Column.Outputs[Import Column Output].Columns[Image]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImagePath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ImagePath" />
+                    <externalMetadataColumn
+                      refId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Image]"
+                      dataType="image"
+                      name="Image" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\import\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\import\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\import\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\import\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\import\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\import.Paths[Flat File Source Output]"
+              endId="Package\import\Import Column.Inputs[Import Column Input]"
+              name="Flat File Source Output"
+              startId="Package\import\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\import.Paths[Import Column Output]"
+              endId="Package\import\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Import Column Output"
+              startId="Package\import\Import Column.Outputs[Import Column Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="110,42"
+          Id="Package\import"
+          TopLeft="83.5,31.5" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Export"
+          TopLeft="110.5,194.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\import">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\import\Flat File Source"
+          TopLeft="203.5,51.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\import\Import Column"
+          TopLeft="199.5,162.5" />
+        <EdgeLayout
+          Id="Package\import.Paths[Flat File Source Output]"
+          TopLeft="278.25,93.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\import\OLE DB Destination"
+          TopLeft="190.5,276.5" />
+        <EdgeLayout
+          Id="Package\import.Paths[Import Column Output]"
+          TopLeft="277,204.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\import\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Export">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Export\OLE DB Source"
+          TopLeft="173.5,67.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Export\Export Column"
+          TopLeft="170.5,196.5" />
+        <EdgeLayout
+          Id="Package\Export.Paths[OLE DB Source Output]"
+          TopLeft="249.25,109.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Export\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
