@@ -1,0 +1,363 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/16/2023 7:22:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{D60E2474-8F8A-4D83-88AA-C746F4232A2E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="30 File system task"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{57E4B991-D3CB-4B81-826B-D8DB31597381}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[2000.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{EDDA382C-3366-4243-B237-E0C5B0A05875}"
+      DTS:ObjectName="2000.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\multi geo data by year\multi xlsx\2000.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{AA4E16E5-CE8D-4EF2-A780-5191237EB332}"
+      DTS:ObjectName="Archive">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7DAB0B17-2831-4462-9139-B28C4F9E00D9}"
+      DTS:ObjectName="Archive 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archive1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4FC32AF0-B18C-4E39-8073-D07370A41123}"
+      DTS:ObjectName="Archive1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive1" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[athelete.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{DD77F2AC-A2DC-4895-A850-7704112B2B92}"
+      DTS:ObjectName="athelete.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\athelete.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Differentfiles]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{76E09E6D-E7FD-4CE4-86E9-AD416B921A52}"
+      DTS:ObjectName="Differentfiles">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Sources\Differentfiles" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[geo_data.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{61A5A470-197A-48BA-B636-270E5DE3239C}"
+      DTS:ObjectName="geo_data.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\geo_data.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[image source]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8C7B54B6-1AD2-44F5-8B60-D292A0882C88}"
+      DTS:ObjectName="image source">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\Dec-18-2021\SSIS\image source" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sample]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E1020616-E17E-425E-90D5-2977BC694406}"
+      DTS:ObjectName="sample">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive1\sample" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sample 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4B3E9B49-EEFF-4D71-B523-106CA68B66FD}"
+      DTS:ObjectName="sample 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive1\sample" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sampledata.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{29EB562B-56EB-4B08-B70A-3B30F4E5D95A}"
+      DTS:ObjectName="sampledata.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive\sampledata.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sampledatawinterathletes.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7705B1A1-D21F-48BE-94CB-CB31787DB9A5}"
+      DTS:ObjectName="sampledatawinterathletes.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Archive\sampledatawinterathletes.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy file"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{fc71e11f-7f63-4650-9dc9-e0165b39f840}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy file"
+      DTS:ThreadHint="6">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{EDDA382C-3366-4243-B237-E0C5B0A05875}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copying folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{7AF4926C-F30C-496D-961C-336A1C8ACB2E}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copying folder"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CopyDirectory"
+          TaskSourcePath="{8C7B54B6-1AD2-44F5-8B60-D292A0882C88}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{a9fbdd51-aedc-4c9f-8416-a2f578c2e254}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create folder"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{E1020616-E17E-425E-90D5-2977BC694406}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\delete file"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{a37f9c46-b368-4d8b-b662-14a45837db1e}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete file"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{DD77F2AC-A2DC-4895-A850-7704112B2B92}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\delete folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{ba55945f-dfb2-4911-ab4d-d1f7047f1f66}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete folder"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{4B3E9B49-EEFF-4D71-B523-106CA68B66FD}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\delete folder content"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{440a9d87-fed2-40b2-80fb-9f0362dda662}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete folder content"
+      DTS:ThreadHint="7">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectoryContent"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{AA4E16E5-CE8D-4EF2-A780-5191237EB332}"
+          TaskDestinationPath="{4FC32AF0-B18C-4E39-8073-D07370A41123}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move file"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{6779c826-7750-4c6a-93d3-9da0a33ab8d0}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move file"
+      DTS:ThreadHint="8">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{61A5A470-197A-48BA-B636-270E5DE3239C}"
+          TaskDestinationPath="{AA4E16E5-CE8D-4EF2-A780-5191237EB332}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move folder"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{58fce0b6-ae0e-44bf-8bc5-fb9fd02a2640}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move folder"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{76E09E6D-E7FD-4CE4-86E9-AD416B921A52}"
+          TaskDestinationPath="{7DAB0B17-2831-4462-9139-B28C4F9E00D9}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\rename"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="Create folder"
+      DTS:DTSID="{0fbe11f8-f435-4482-89e7-7ad11d5a97db}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="rename"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="RenameFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{7705B1A1-D21F-48BE-94CB-CB31787DB9A5}"
+          TaskDestinationPath="{29EB562B-56EB-4B08-B70A-3B30F4E5D95A}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Copying folder"
+          TopLeft="98.5,63.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Copy file"
+          TopLeft="288,63" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Create folder"
+          TopLeft="106,148" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\delete folder"
+          TopLeft="297,149" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\delete folder content"
+          TopLeft="89,224" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\delete file"
+          TopLeft="302,221" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Move folder"
+          TopLeft="114,299" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Move file"
+          TopLeft="322,293" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\rename"
+          TopLeft="239,366" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

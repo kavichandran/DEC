@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.DEC-SSIS"
+  DTS:DTSID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=DEC-SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-02 Loading csv files to SQL-{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}LocalHost.DEC-SSIS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
