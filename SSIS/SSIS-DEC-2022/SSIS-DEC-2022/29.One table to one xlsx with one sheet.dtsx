@@ -1,0 +1,945 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2023 7:39:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{E8E81DE7-FC43-474D-AE1B-1757BCCF407B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="29 One table to one xlsx with one sheet"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{6501C587-4B50-4CB0-A28D-5F0255F0C491}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A73F466A-655D-4D4C-A37A-23A1D4AC6DF9}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::destPath]  +@[User::SingleYear]+".xlsx"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Onlineclasss\SSIS-DEC-2022\dest\multi geo data by year\multi xlsx\2000.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B4D62E7B-FCA7-48C8-ADD2-98C4816B8D2F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="destPath">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\Onlineclasss\SSIS-DEC-2022\dest\multi geo data by year\multi xlsx\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9B0F5BD-41FF-423D-A04D-52692FA55245}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DistinctYear">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16B94491-9F79-49B0-B5ED-71DF73C266B2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;_&quot;+ @[User::SingleYear]+&quot;$&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">_2000$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB253D23-9ED7-458B-8121-868420B86853}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SingleYear">
+      <DTS:VariableValue
+        DTS:DataType="8">2000</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Distinct year"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3F27756D-4574-4CD8-8BF1-7D19D36E94D6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Distinct year"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}"
+          SQLTask:SqlStatementSource="select Distinct Year from Geo_data_csv order by year"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::DistinctYear" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\fetch the data from Object"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{7BC2CD6D-BDFB-4997-9C0C-F476808AA229}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="fetch the data from Object">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{846BB0E1-199A-4480-B294-C57050AD09E7}"
+        DTS:ObjectName="{846BB0E1-199A-4480-B294-C57050AD09E7}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::DistinctYear" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\fetch the data from Object\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D97CE13C-69B0-4760-8A14-12E9E9329D98}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\fetch the data from Object\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[anzsic06]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="anzsic06"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Area]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Area"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="year"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[geo_count]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="geo_count"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[ec_count]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ec_count"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of anzsic06]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of anzsic06]"
+                          name="Copy of anzsic06"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Area]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Area]"
+                          name="Copy of Area"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]"
+                          name="Copy of year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of geo_count]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of geo_count]"
+                          name="Copy of geo_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ec_count]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ec_count]"
+                          name="Copy of ec_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\fetch the data from Object\Data Flow Task\Excel Destination"
+                  componentClassID="Microsoft.ExcelDestination"
+                  contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Excel Destination"
+                  name="Excel Destination"
+                  usesDispositions="true">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">test$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::SheetName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Excel Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of anzsic06]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of anzsic06"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[anzsic06]"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of anzsic06]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Area]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Copy of Area"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Area]"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Area]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of year]"
+                          cachedDataType="r8"
+                          cachedName="Copy of year"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[year]"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of geo_count]"
+                          cachedDataType="r8"
+                          cachedName="Copy of geo_count"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[geo_count]"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of geo_count]" />
+                        <inputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of ec_count]"
+                          cachedDataType="r8"
+                          cachedName="Copy of ec_count"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ec_count]"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ec_count]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[anzsic06]"
+                          dataType="wstr"
+                          length="255"
+                          name="anzsic06" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Area]"
+                          dataType="wstr"
+                          length="255"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[year]"
+                          dataType="wstr"
+                          length="255"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[geo_count]"
+                          dataType="wstr"
+                          length="255"
+                          name="geo_count" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ec_count]"
+                          dataType="wstr"
+                          length="255"
+                          name="ec_count" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Excel Destination Error Output"
+                      synchronousInputId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from geo_data_csv where year = ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"0:Input",{AB253D23-9ED7-458B-8121-868420B86853};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[anzsic06]"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]"
+                          name="anzsic06"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]"
+                          name="Area"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geo_count]"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]"
+                          name="geo_count"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ec_count]"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]"
+                          name="ec_count"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="anzsic06" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="geo_count" />
+                        <externalMetadataColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ec_count" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[anzsic06]"
+                          name="anzsic06" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Area]"
+                          name="Area" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          name="year" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geo_count]"
+                          name="geo_count" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ec_count]"
+                          name="ec_count" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\fetch the data from Object\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\fetch the data from Object\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\fetch the data from Object\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\fetch the data from Object\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\fetch the data from Object\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\fetch the data from Object\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CD30AB08-F37E-44C7-9874-BDFF6E0DA72D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"CREATE TABLE `"+ @[User::SingleYear] +"` (
+    `anzsic06` NVARCHAR(50),
+    `Area` NVARCHAR(50),
+    `year` DOUBLE PRECISION,
+    `geo_count` DOUBLE PRECISION,
+    `ec_count` DOUBLE PRECISION
+)"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A73F466A-655D-4D4C-A37A-23A1D4AC6DF9}"
+              SQLTask:SqlStatementSource="CREATE TABLE `2000` (&#xA;    `anzsic06` NVARCHAR(50),&#xA;    `Area` NVARCHAR(50),&#xA;    `year` DOUBLE PRECISION,&#xA;    `geo_count` DOUBLE PRECISION,&#xA;    `ec_count` DOUBLE PRECISION&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\fetch the data from Object.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{EB55C5CC-A105-4BA4-AFE5-3847F580F181}"
+          DTS:From="Package\fetch the data from Object\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\fetch the data from Object\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{11430AF2-EC90-4DE9-825A-31B28F76CFCE}"
+          DTS:ObjectName="{11430AF2-EC90-4DE9-825A-31B28F76CFCE}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::SingleYear" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E7373B7-0CAC-4359-B0F2-C3B331C3EF10}"
+      DTS:From="Package\Distinct year"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\fetch the data from Object" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Distinct year"
+          TopLeft="223.5,43.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\fetch the data from Object\Data Flow Task"
+          TopLeft="43.5,84.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\fetch the data from Object\Execute SQL Task"
+          TopLeft="25.5,9.5" />
+        <EdgeLayout
+          Id="Package\fetch the data from Object.PrecedenceConstraints[Constraint]"
+          TopLeft="110.5,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,33"
+              Start="0,0"
+              End="10.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="6.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,16.5"
+                    Point2="10.5,16.5"
+                    Point3="10.5,20.5" />
+                  <mssgle:LineSegment
+                    End="10.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="228,182"
+          Size="228,224"
+          Id="Package\fetch the data from Object"
+          TopLeft="178.5,155.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="293,85.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\fetch the data from Object\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\fetch the data from Object\Data Flow Task\OLE DB Source"
+          TopLeft="214.5,60.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\fetch the data from Object\Data Flow Task\Data Conversion"
+          TopLeft="210.5,160.5" />
+        <EdgeLayout
+          Id="Package\fetch the data from Object\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="292,102.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\fetch the data from Object\Data Flow Task\Excel Destination"
+          TopLeft="225.5,246.5" />
+        <EdgeLayout
+          Id="Package\fetch the data from Object\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="291,202.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.5,44"
+              Start="0,0"
+              End="16.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="12.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5,22"
+                    Point2="16.5,22"
+                    Point3="16.5,26" />
+                  <mssgle:LineSegment
+                    End="16.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\fetch the data from Object\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fetch the data from Object\Data Flow Task\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

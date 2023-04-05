@@ -1,0 +1,2238 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2023 7:15:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{9606F132-FE9A-4EF5-B3F5-A52BCB080E18}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="22 loading the file to the respective table"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{15909786-EED5-40B0-89B7-0FDB9F01789A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[diff_Employee_txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EC492641-FEC5-4829-B45C-3FC505394935}"
+      DTS:ObjectName="diff_Employee_txt">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="employee_id"
+              DTS:DTSID="{CC8B59DF-C24E-49CF-8399-2AE7F67DA594}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="first_name"
+              DTS:DTSID="{C2AC6EBA-D4C2-4003-9340-771CE4C78EE6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="last_name"
+              DTS:DTSID="{7E53FEBB-FAFB-4100-8A04-9361FE0F76CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="email"
+              DTS:DTSID="{15AB7184-DBE9-4B68-9460-4B4F60E7B80F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="phone_number"
+              DTS:DTSID="{3ACC5BE9-DC33-4793-AF1B-D3763BA3E02D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hire_date"
+              DTS:DTSID="{7EBA90E7-6922-47E5-9E84-405346BFFF5A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="job_id"
+              DTS:DTSID="{D1D13285-B8BB-4347-B857-6DCDD3246A14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="salary"
+              DTS:DTSID="{92F9C07E-2FCD-4A2B-A3EB-980E55172358}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="manager_id"
+              DTS:DTSID="{0EECD5B5-3F26-4C8C-AFD8-836E146E24F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="department_id"
+              DTS:DTSID="{C227E34C-6836-43D1-9B84-643818ACA8CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="exp"
+              DTS:DTSID="{F4BF4124-17D9-47DD-8844-7F54176EEEF7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[diff_employee_xlsx]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5E374A5A-3127-47DC-8E17-883B5BCD2FDB}"
+      DTS:ObjectName="diff_employee_xlsx">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::Filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[diff_geo_data_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{615679BF-8F9B-4939-BEB6-D3BFC3179575}"
+      DTS:ObjectName="diff_geo_data_csv">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="anzsic06"
+              DTS:DTSID="{BB0BB248-D4B5-4E02-B5E8-E3E8E9E8B955}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Area"
+              DTS:DTSID="{ACD05321-956D-46C5-A4C6-FDE4B538313D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="year"
+              DTS:DTSID="{EB32965A-26F2-499F-B199-D3D3A7878A49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo_count"
+              DTS:DTSID="{915EE7C8-1617-42D2-843B-CA16D969E61E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ec_count"
+              DTS:DTSID="{5AFD79D1-BCCF-4F06-B6F5-16C2AD304DE5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C414055-B794-427F-9E48-6AEDDAD9E6AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Filename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{25B5A07F-2FAD-412B-800D-A0EC0E7D71BA}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{45F9596A-9B8A-4532-891A-2E081736BC0B}"
+        DTS:ObjectName="{45F9596A-9B8A-4532-891A-2E081736BC0B}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="E:\Onlineclasss\SSIS-DEC-2022\Sources\Multi falt file\diff files\" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Employee_txt"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{05068BEE-9876-4448-B06A-98D3161B1D11}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Employee_txt"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Employee_txt\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[diff_Employee_txt]"
+                      connectionManagerRefId="Package.ConnectionManagers[diff_Employee_txt]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[employee_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[employee_id]"
+                          name="employee_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]"
+                          name="first_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[last_name]"
+                          name="last_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[phone_number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[phone_number]"
+                          name="phone_number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[hire_date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[hire_date]"
+                          name="hire_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[job_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[job_id]"
+                          name="job_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[salary]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[salary]"
+                          name="salary"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[manager_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[manager_id]"
+                          name="manager_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[department_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[department_id]"
+                          name="department_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[exp]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[exp]"
+                          name="exp"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="employee_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="first_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="phone_number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="hire_date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="job_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="salary" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="manager_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="department_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="exp" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Diff_employee_txt]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[employee_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="employee_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[employee_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="first_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="last_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[last_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[phone_number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="phone_number"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone_number]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[phone_number]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hire_date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="hire_date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[hire_date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[job_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="job_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[job_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[salary]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="salary"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[salary]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[manager_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="manager_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[manager_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[manager_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[department_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="department_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[department_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[department_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[exp]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="exp"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exp]"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output].Columns[exp]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="employee_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="first_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="phone_number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="hire_date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="job_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="salary" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[manager_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="manager_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[department_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="department_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exp]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="exp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Employee_txt.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Employee_txt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Employee_txt\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Employee_xlsx"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7C252B80-7250-4DEA-A62D-FE01DE3D6EF4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Employee_xlsx"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[diff_employee_xlsx]"
+                      connectionManagerRefId="Package.ConnectionManagers[diff_employee_xlsx]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[employee_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[employee_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[employee_id]"
+                          name="employee_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[first_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[first_name]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[first_name]"
+                          name="first_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[last_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[last_name]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[last_name]"
+                          name="last_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[email]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[phone_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[phone_number]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[phone_number]"
+                          name="phone_number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[hire_date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[hire_date]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[hire_date]"
+                          name="hire_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[job_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[job_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[job_id]"
+                          name="job_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[salary]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[salary]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[salary]"
+                          name="salary"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[manager_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[manager_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[manager_id]"
+                          name="manager_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[department_id]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[department_id]"
+                          name="department_id"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[employee_id]"
+                          dataType="r8"
+                          name="employee_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[first_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="first_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[last_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[email]"
+                          dataType="wstr"
+                          length="255"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[phone_number]"
+                          dataType="wstr"
+                          length="255"
+                          name="phone_number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[hire_date]"
+                          dataType="date"
+                          name="hire_date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[job_id]"
+                          dataType="r8"
+                          name="job_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[salary]"
+                          dataType="r8"
+                          name="salary" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[manager_id]"
+                          dataType="r8"
+                          name="manager_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_id]"
+                          dataType="r8"
+                          name="department_id" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[employee_id]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[employee_id]"
+                          name="employee_id" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[first_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[first_name]"
+                          name="first_name" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[last_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[last_name]"
+                          name="last_name" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[email]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[email]"
+                          name="email" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[phone_number]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[phone_number]"
+                          name="phone_number" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[hire_date]"
+                          dataType="date"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[hire_date]"
+                          name="hire_date" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[job_id]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[job_id]"
+                          name="job_id" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[salary]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[salary]"
+                          name="salary" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[manager_id]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[manager_id]"
+                          name="manager_id" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[department_id]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[department_id]"
+                          name="department_id" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[diff_Employee_xlsx]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[employee_id]"
+                          cachedDataType="r8"
+                          cachedName="employee_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[employee_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="first_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[first_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="last_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[last_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[phone_number]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="phone_number"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone_number]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[phone_number]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hire_date]"
+                          cachedDataType="date"
+                          cachedName="hire_date"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[hire_date]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[job_id]"
+                          cachedDataType="r8"
+                          cachedName="job_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[job_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[salary]"
+                          cachedDataType="r8"
+                          cachedName="salary"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[salary]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[manager_id]"
+                          cachedDataType="r8"
+                          cachedName="manager_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[manager_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[manager_id]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[department_id]"
+                          cachedDataType="r8"
+                          cachedName="department_id"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[department_id]"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output].Columns[department_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                          dataType="r8"
+                          name="employee_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="first_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                          dataType="wstr"
+                          length="255"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone_number]"
+                          dataType="wstr"
+                          length="255"
+                          name="phone_number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                          dataType="dbTimeStamp"
+                          name="hire_date" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[job_id]"
+                          dataType="r8"
+                          name="job_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                          dataType="r8"
+                          name="salary" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[manager_id]"
+                          dataType="r8"
+                          name="manager_id" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[department_id]"
+                          dataType="r8"
+                          name="department_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Employee_xlsx.Paths[Excel Source Output]"
+                  endId="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Foreach Loop Container\Employee_xlsx\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Geo_data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6EA29AE6-4FC7-4FED-B676-E5A69FE3DD23}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Geo_data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Geo_data\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[diff_geo_data_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[diff_geo_data_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[anzsic06]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[anzsic06]"
+                          name="anzsic06"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Area]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[Area]"
+                          name="Area"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[year]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[geo_count]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[geo_count]"
+                          name="geo_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ec_count]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[ec_count]"
+                          name="ec_count"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="anzsic06" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="geo_count" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ec_count" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Geo_data_csv1]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[anzsic06]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="anzsic06"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[anzsic06]"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[anzsic06]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Area]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Area"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Area]"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[Area]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="year"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geo_count]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="geo_count"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geo_count]"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[geo_count]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ec_count]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ec_count"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ec_count]"
+                          lineageId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output].Columns[ec_count]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[anzsic06]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="anzsic06" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Area" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geo_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="geo_count" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ec_count]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ec_count" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Geo_data.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Geo_data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Geo_data\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Script Task"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{41A25401-8491-41C1-AAF1-7A53B5FF3658}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Script Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_f397c153e9194fa6a45fd632122ae464"
+              VSTAMajorVersion="15"
+              VSTAMinorVersion="0"
+              Language="CSharp" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6C619BB-C308-493A-9109-2C28B4999B68}"
+          DTS:EvalOp="1"
+          DTS:Expression="FINDSTRING(@[User::Filename],&quot;_txt&quot;,1)&gt;0"
+          DTS:From="Package\Foreach Loop Container\Script Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Employee_txt"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{12FBC770-1460-45DB-B2FE-820B9FE9378F}"
+          DTS:EvalOp="1"
+          DTS:Expression="FINDSTRING(@[User::Filename],&quot;_xlsx&quot;,1)&gt;0"
+          DTS:From="Package\Foreach Loop Container\Script Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Employee_xlsx" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F3EC3E48-955A-408E-9A03-64A00D649388}"
+          DTS:EvalOp="1"
+          DTS:Expression="FINDSTRING(@[User::Filename],&quot;csv&quot;,1)&gt;0"
+          DTS:From="Package\Foreach Loop Container\Script Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\Geo_data" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D2205198-0F86-4780-94D5-D757B173EE4D}"
+          DTS:ObjectName="{D2205198-0F86-4780-94D5-D757B173EE4D}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Foreach Loop Container\Script Task"
+          TopLeft="180,14" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Foreach Loop Container\Employee_txt"
+          TopLeft="17.5,157.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Foreach Loop Container\Employee_xlsx"
+          TopLeft="191.5,158.5" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Foreach Loop Container\Geo_data"
+          TopLeft="372.5,160.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="215.5,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125,101.5"
+              Start="0,0"
+              End="-125,94">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1536585365854" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1536585365854"
+                    Point2="0,35.1536585365854"
+                    Point3="-4,35.1536585365854" />
+                  <mssgle:LineSegment
+                    End="-121,35.1536585365854" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121,35.1536585365854"
+                    Point2="-125,35.1536585365854"
+                    Point3="-125,39.1536585365854" />
+                  <mssgle:LineSegment
+                    End="-125,94" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.5,40.1536585365854,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="247,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,102.5"
+              Start="0,0"
+              End="21,95">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.25"
+                    Point2="0,51.25"
+                    Point3="4,51.25" />
+                  <mssgle:LineSegment
+                    End="17,51.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,51.25"
+                    Point2="21,51.25"
+                    Point3="21,55.25" />
+                  <mssgle:LineSegment
+                    End="21,95" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="2.5,56.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="278.5,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="157.5,104.5"
+              Start="0,0"
+              End="157.5,97">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1926829268293" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1926829268293"
+                    Point2="0,36.1926829268293"
+                    Point3="4,36.1926829268293" />
+                  <mssgle:LineSegment
+                    End="153.5,36.1926829268293" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153.5,36.1926829268293"
+                    Point2="157.5,36.1926829268293"
+                    Point3="157.5,40.1926829268293" />
+                  <mssgle:LineSegment
+                    End="157.5,97" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="70.75,41.1926829268293,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="560,266"
+          Size="560,309"
+          Id="Package\Foreach Loop Container"
+          TopLeft="43.5,30.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Employee_txt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\Employee_txt\Flat File Source"
+          TopLeft="201.5,45.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container\Employee_txt\OLE DB Destination"
+          TopLeft="139.5,167.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Employee_txt.Paths[Flat File Source Output]"
+          TopLeft="279.5,87.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.5,80"
+              Start="0,0"
+              End="-51.5,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="-4,40" />
+                  <mssgle:LineSegment
+                    End="-47.5,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.5,40"
+                    Point2="-51.5,40"
+                    Point3="-51.5,44" />
+                  <mssgle:LineSegment
+                    End="-51.5,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Employee_xlsx">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Foreach Loop Container\Employee_xlsx\Excel Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination"
+          TopLeft="65.5,93.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Employee_xlsx.Paths[Excel Source Output]"
+          TopLeft="77.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.5,46"
+              Start="0,0"
+              End="76.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="72.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.5,23"
+                    Point2="76.5,23"
+                    Point3="76.5,27" />
+                  <mssgle:LineSegment
+                    End="76.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Geo_data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\Geo_data\Flat File Source"
+          TopLeft="5.5,4.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container\Geo_data\OLE DB Destination"
+          TopLeft="134.5,142.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Geo_data.Paths[Flat File Source Output]"
+          TopLeft="83.5,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.5,96"
+              Start="0,0"
+              End="139.5,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44"
+                    Point2="0,48"
+                    Point3="4,48" />
+                  <mssgle:LineSegment
+                    End="135.5,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.5,48"
+                    Point2="139.5,48"
+                    Point3="139.5,52" />
+                  <mssgle:LineSegment
+                    End="139.5,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Employee_txt\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Employee_xlsx\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Employee_xlsx\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Geo_data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

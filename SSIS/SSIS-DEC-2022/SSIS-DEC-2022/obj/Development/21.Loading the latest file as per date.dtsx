@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/8/2023 8:00:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{9BF5516F-E421-4937-94B4-F32E211AA535}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="21 Loading the latest file as per date"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{49E7F733-4518-437D-9BDD-43BB87F52AC1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{252438DE-0B09-4B1E-9B7C-1E13BF1D4496}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filename">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{695F7A5F-D7BF-474B-B45F-88D19C13DC4B}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{45B576C6-3C16-41BC-B90C-BBE5BB8223EA}"
+        DTS:ObjectName="{45B576C6-3C16-41BC-B90C-BBE5BB8223EA}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::SourceFilePath]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">"Employee_"+ replace((DT_WSTR, 200) (DT_DBDATE) GETDATE(),"-","")+".txt"</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="E:\Onlineclasss\SSIS-DEC-2022\Sources\Multi falt file\testFolder\" />
+            <FEFEProperty
+              FileSpec="Employee_20230311.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables />
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{ABE9F8FC-AC09-4960-AC2C-0438B31F0653}"
+          DTS:ObjectName="{ABE9F8FC-AC09-4960-AC2C-0438B31F0653}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container 1"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{4a6c1368-f129-4361-a2cd-41bcf94d09f9}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container 1">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{2e28b6b0-0cc9-4020-8de2-0e333e3ae5c7}"
+        DTS:ObjectName="{45B576C6-3C16-41BC-B90C-BBE5BB8223EA}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::SourceFilePath]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">"Employee_"+ replace((DT_WSTR, 200) (DT_DBDATE) GETDATE(),"-","")+".txt"</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="E:\Onlineclasss\SSIS-DEC-2022\Sources\Multi falt file\testFolder\" />
+            <FEFEProperty
+              FileSpec="Employee_20230311.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables />
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{22cffd71-2ddb-485e-812b-06d6b236dd74}"
+          DTS:ObjectName="{ABE9F8FC-AC09-4960-AC2C-0438B31F0653}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::filename" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,55"
+          Size="220,98"
+          Id="Package\Foreach Loop Container"
+          TopLeft="169.5,149.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="220,55"
+          Size="220,98"
+          Id="Package\Foreach Loop Container 1"
+          TopLeft="488,147" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

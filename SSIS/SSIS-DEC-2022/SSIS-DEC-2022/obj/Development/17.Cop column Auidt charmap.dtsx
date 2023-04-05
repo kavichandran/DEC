@@ -1,0 +1,2161 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/3/2023 7:26:16 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{D463A318-CB47-4E24-83B7-14E75E274593}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="17 Cop column Auidt charmap"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{75E0A36F-F709-4042-A3D9-3390A30156E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Auidt"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{89373FE0-D67A-4490-BA9F-5F745D898717}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Auidt"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Auidt\Audit"
+              componentClassID="Microsoft.Lineage"
+              contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+              name="Audit">
+              <inputs>
+                <input
+                  refId="Package\Auidt\Audit.Inputs[Audit Input 1]"
+                  name="Audit Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Auidt\Audit.Outputs[Audit Output 1]"
+                  exclusionGroup="1"
+                  name="Audit Output 1"
+                  synchronousInputId="Package\Auidt\Audit.Inputs[Audit Input 1]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Package ID]"
+                      dataType="guid"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Package ID]"
+                      name="Package ID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Package name]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Package name]"
+                      name="Package name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Execution start time]"
+                      dataType="date"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Execution start time]"
+                      name="Execution start time">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">4</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Machine name]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Machine name]"
+                      name="Machine name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">5</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[User name]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[User name]"
+                      name="User name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">6</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Task name]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Task name]"
+                      name="Task name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">7</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Task ID]"
+                      dataType="guid"
+                      lineageId="Package\Auidt\Audit.Outputs[Audit Output 1].Columns[Task ID]"
+                      name="Task ID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">8</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Auidt\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Auidt\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Auidt\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Auidt\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::CreationDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::CreationDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::CreationName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::CreationName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      name="Derived Column 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::CreatorComputerName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::CreatorComputerName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 4]"
+                      name="Derived Column 4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::FailedConfigurations]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::FailedConfigurations]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Auidt\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Auidt\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Auidt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Auidt\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Auidt\employees"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="employees"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Auidt\employees.Connections[FlatFileConnection]"
+                  connectionManagerID="{41AFFA2F-80C5-4908-86BC-6C4917B2237C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Employee_txt_file_conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Auidt\employees.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[phone_number]"
+                      name="phone_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[hire_date]"
+                      name="hire_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[salary]"
+                      name="salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[manager_id]"
+                      name="manager_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[department_id]"
+                      name="department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      length="50"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Output].Columns[exp]"
+                      name="exp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="phone_number" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hire_date" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="manager_id" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department_id" />
+                    <externalMetadataColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="exp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Auidt\employees.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Auidt\employees.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Auidt\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Auidt\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Auidt\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Auidt\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Auidt.Paths[Audit Output 1]"
+              endId="Package\Auidt\Multicast.Inputs[Multicast Input 1]"
+              name="Audit Output 1"
+              startId="Package\Auidt\Audit.Outputs[Audit Output 1]" />
+            <path
+              refId="Package\Auidt.Paths[Derived Column Output]"
+              endId="Package\Auidt\Audit.Inputs[Audit Input 1]"
+              name="Derived Column Output"
+              startId="Package\Auidt\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Auidt.Paths[Flat File Source Output]"
+              endId="Package\Auidt\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Auidt\employees.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\char map"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{70770089-39E4-4031-854C-ABD6F9132156}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="char map"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\char map\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\char map\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\char map\Derived Column.Inputs[Derived Column Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\char map\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\char map\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\char map\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\char map\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER](#{Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(first_name)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\char map\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\char map\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\char map\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\char map\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\char map\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\char map\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\char map\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\char map\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{41AFFA2F-80C5-4908-86BC-6C4917B2237C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Employee_txt_file_conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\char map\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[phone_number]"
+                      name="phone_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[hire_date]"
+                      name="hire_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[salary]"
+                      name="salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[manager_id]"
+                      name="manager_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[department_id]"
+                      name="department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      length="50"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Output].Columns[exp]"
+                      name="exp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="phone_number" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hire_date" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="manager_id" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department_id" />
+                    <externalMetadataColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="exp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\char map\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\char map\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\char map\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\char map\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\char map\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\char map.Paths[Derived Column Output]"
+              endId="Package\char map\Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\char map\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\char map.Paths[Flat File Source Output]"
+              endId="Package\char map\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\char map\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\copy column"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02B41479-4952-4B78-A414-1DCDC4015E46}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="copy column"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\copy column\Copy Column"
+              componentClassID="Microsoft.CopyMap"
+              contactInfo="Copy Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Copies input columns to new columns in the transformation output. For example, create a copy of the 'address' column so that it can be cleaned by subsequent transformations and leave the original column in place for auditing."
+              name="Copy Column">
+              <inputs>
+                <input
+                  refId="Package\copy column\Copy Column.Inputs[Copy Column Input]"
+                  name="Copy Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\copy column\Copy Column.Inputs[Copy Column Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\copy column\Copy Column.Outputs[Copy Column Output]"
+                  name="Copy Column Output"
+                  synchronousInputId="Package\copy column\Copy Column.Inputs[Copy Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\copy column\Copy Column.Outputs[Copy Column Output].Columns[First_name_new]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\copy column\Copy Column.Outputs[Copy Column Output].Columns[First_name_new]"
+                      name="First_name_new">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the column to copy."
+                          name="copyColumnId">#{Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\copy column\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\copy column\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\copy column\Derived Column.Inputs[Derived Column Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\copy column\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\copy column\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\copy column\Derived Column.Outputs[Derived Column Output].Columns[First_name_2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\copy column\Derived Column.Outputs[Derived Column Output].Columns[First_name_2]"
+                      name="First_name_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">first_name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\copy column\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\copy column\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\copy column\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\copy column\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\copy column\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\copy column\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\copy column\employee"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="employee"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\copy column\employee.Connections[FlatFileConnection]"
+                  connectionManagerID="{41AFFA2F-80C5-4908-86BC-6C4917B2237C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Employee_txt_file_conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\copy column\employee.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[phone_number]"
+                      name="phone_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[hire_date]"
+                      name="hire_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[salary]"
+                      name="salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[manager_id]"
+                      name="manager_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[department_id]"
+                      name="department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      length="50"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Output].Columns[exp]"
+                      name="exp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="phone_number" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hire_date" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="manager_id" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department_id" />
+                    <externalMetadataColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="exp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\copy column\employee.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\copy column\employee.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\copy column\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\copy column\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\copy column\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\copy column\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\copy column.Paths[Copy Column Output]"
+              endId="Package\copy column\Multicast.Inputs[Multicast Input 1]"
+              name="Copy Column Output"
+              startId="Package\copy column\Copy Column.Outputs[Copy Column Output]" />
+            <path
+              refId="Package\copy column.Paths[Derived Column Output]"
+              endId="Package\copy column\Copy Column.Inputs[Copy Column Input]"
+              name="Derived Column Output"
+              startId="Package\copy column\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\copy column.Paths[Flat File Source Output]"
+              endId="Package\copy column\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\copy column\employee.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\copy column"
+          TopLeft="378.5,43.5" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Auidt"
+          TopLeft="35.5,35.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\char map"
+          TopLeft="231.5,161.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\copy column">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\copy column\employee"
+          TopLeft="202.5,27.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\copy column\Copy Column"
+          TopLeft="316.5,164.5" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\copy column\Multicast"
+          TopLeft="297.5,272.5" />
+        <EdgeLayout
+          Id="Package\copy column.Paths[Copy Column Output]"
+          TopLeft="389.5,206.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.5,66"
+              Start="0,0"
+              End="-30.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-26.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5,33"
+                    Point2="-30.5,33"
+                    Point3="-30.5,37" />
+                  <mssgle:LineSegment
+                    End="-30.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.25,38,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\copy column\Derived Column"
+          TopLeft="370.5,74.5" />
+        <EdgeLayout
+          Id="Package\copy column.Paths[Flat File Source Output]"
+          TopLeft="329.5,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,47"
+              Start="0,0"
+              End="33.5,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,0"
+                    Point2="20.5,0"
+                    Point3="20.5,4" />
+                  <mssgle:LineSegment
+                    End="20.5,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,43"
+                    Point2="20.5,47"
+                    Point3="24.5,47" />
+                  <mssgle:LineSegment
+                    End="33.5,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\copy column.Paths[Derived Column Output]"
+          TopLeft="449.5,116.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60,48"
+              Start="0,0"
+              End="-60,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-56,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56,24"
+                    Point2="-60,24"
+                    Point3="-60,28" />
+                  <mssgle:LineSegment
+                    End="-60,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Auidt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Auidt\employees"
+          TopLeft="157.5,0.5" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Auidt\Audit"
+          TopLeft="375.5,140.5" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Auidt\Multicast"
+          TopLeft="356.5,260.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Auidt\Derived Column"
+          TopLeft="29.5,159.5" />
+        <EdgeLayout
+          Id="Package\Auidt.Paths[Flat File Source Output]"
+          TopLeft="223.5,42.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-115,117"
+              Start="0,0"
+              End="-115,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.5"
+                    Point2="0,58.5"
+                    Point3="-4,58.5" />
+                  <mssgle:LineSegment
+                    End="-111,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111,58.5"
+                    Point2="-115,58.5"
+                    Point3="-115,62.5" />
+                  <mssgle:LineSegment
+                    End="-115,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Auidt.Paths[Derived Column Output]"
+          TopLeft="187.5,180.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="188,-19"
+              Start="0,0"
+              End="180.5,-19">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="90,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90,0"
+                    Point2="94,0"
+                    Point3="94,-4" />
+                  <mssgle:LineSegment
+                    End="94,-15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,-15"
+                    Point2="94,-19"
+                    Point3="98,-19" />
+                  <mssgle:LineSegment
+                    End="180.5,-19" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Auidt.Paths[Audit Output 1]"
+          TopLeft="427.5,182.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,78"
+              Start="0,0"
+              End="-9.5,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="-4,39" />
+                  <mssgle:LineSegment
+                    End="-5.5,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,39"
+                    Point2="-9.5,39"
+                    Point3="-9.5,43" />
+                  <mssgle:LineSegment
+                    End="-9.5,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.75,44,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\char map">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\char map\Flat File Source"
+          TopLeft="224.5,23.5" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\char map\Multicast"
+          TopLeft="235.5,298.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\char map\Derived Column"
+          TopLeft="123.5,124.5" />
+        <EdgeLayout
+          Id="Package\char map.Paths[Flat File Source Output]"
+          TopLeft="302.5,65.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-100,59"
+              Start="0,0"
+              End="-100,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="-4,29.5" />
+                  <mssgle:LineSegment
+                    End="-96,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-96,29.5"
+                    Point2="-100,29.5"
+                    Point3="-100,33.5" />
+                  <mssgle:LineSegment
+                    End="-100,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\char map.Paths[Derived Column Output]"
+          TopLeft="202.5,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94.5,132"
+              Start="0,0"
+              End="94.5,124.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62"
+                    Point2="0,66"
+                    Point3="4,66" />
+                  <mssgle:LineSegment
+                    End="90.5,66" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.5,66"
+                    Point2="94.5,66"
+                    Point3="94.5,70" />
+                  <mssgle:LineSegment
+                    End="94.5,124.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.25,71,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

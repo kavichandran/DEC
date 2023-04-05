@@ -1,0 +1,1681 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/1/2023 8:07:42 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{F325932B-BD3A-44E2-B1F5-14B7FD790FB6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="17 LOOKUPO USING CACHE CONNECTION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{C6900FD3-4128-4711-913E-900C9F6E4736}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache Connection Manager]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{55F64B0E-626C-4E7B-81D0-4C8CAD04C988}"
+      DTS:ObjectName="Cache Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\Sources\dept_lkp_cache.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="Copy of department_id"
+              DTS:DTSID="{D6A159B9-2B35-43B3-8CB1-4A36B83D8EA7}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="50"
+              DTS:CodePage="1252"
+              DTS:ObjectName="Copy of department_name"
+              DTS:DTSID="{7269B84F-C01A-4913-A5B9-DE8DF36ED546}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:ObjectName="Copy of location_id"
+              DTS:DTSID="{3F1B98BE-E992-4E67-B182-226B73DBC818}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dept lkp]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CAD3CC51-0D4C-45AC-9301-AA0F6EB803C8}"
+      DTS:ObjectName="Dept lkp">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Onlineclasss\SSIS-DEC-2022\Sources\Dept_lookup.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Employee]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{290E383D-D0AB-4B79-B660-7426BFA8D172}"
+      DTS:ObjectName="LocalHost.Employee">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Employee;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-16 lookup transofrmation-{290E383D-D0AB-4B79-B660-7426BFA8D172}LocalHost.Employee;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cache operation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2AE34A31-F74C-44A4-B88D-A96E9E5B31A7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cache operation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cache operation\Cache Transform"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache Transform"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cache operation\Cache Transform.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache Connection Manager]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cache operation\Cache Transform.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cache operation\Cache Transform.Inputs[Cache Input].Columns[Copy of department_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of department_id"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Copy of department_id</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cache operation\Cache Transform.Inputs[Cache Input].Columns[Copy of department_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of department_name"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Copy of department_name</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cache operation\Cache Transform.Inputs[Cache Input].Columns[Copy of location_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of location_id"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Copy of location_id</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cache operation\Cache Transform.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Cache operation\Cache Transform.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cache operation\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input].Columns[department_id]"
+                      cachedDataType="r8"
+                      cachedName="department_id"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_id]" />
+                    <inputColumn
+                      refId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input].Columns[department_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="department_name"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_name]" />
+                    <inputColumn
+                      refId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input].Columns[location_id]"
+                      cachedDataType="r8"
+                      cachedName="location_id"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[location_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_id]"
+                      name="Copy of department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of department_name]"
+                      name="Copy of department_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_id]"
+                      name="Copy of location_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[location_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cache operation\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">dept$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cache operation\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Dept lkp]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dept lkp]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_id]"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_id]"
+                      name="department_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_name]"
+                      length="255"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[department_name]"
+                      name="department_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[location_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[location_id]"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].Columns[location_id]"
+                      name="location_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_id]"
+                      dataType="r8"
+                      name="department_id" />
+                    <externalMetadataColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[department_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="department_name" />
+                    <externalMetadataColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Output].ExternalColumns[location_id]"
+                      dataType="r8"
+                      name="location_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[department_id]"
+                      dataType="r8"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[department_id]"
+                      name="department_id" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[department_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[department_name]"
+                      name="department_name" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[location_id]"
+                      dataType="r8"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[location_id]"
+                      name="location_id" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cache operation\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cache operation.Paths[Data Conversion Output]"
+              endId="Package\Cache operation\Cache Transform.Inputs[Cache Input]"
+              name="Data Conversion Output"
+              startId="Package\Cache operation\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Cache operation.Paths[Excel Source Output]"
+              endId="Package\Cache operation\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Cache operation\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\lookup operation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{a1ce0038-418b-4207-abe6-5df5bb38f825}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="lookup operation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\lookup operation\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[employee_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="employee_id"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[employee_id]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[phone_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="phone_number"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[phone_number]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[hire_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hire_date"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[hire_date]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[job_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="job_id"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[job_id]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[salary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="salary"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[salary]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[manager_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="manager_id"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[manager_id]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[department_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="department_id"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[department_id]" />
+                    <inputColumn
+                      refId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input].Columns[exp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="exp"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[exp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_employee_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_employee_id]"
+                      name="DC_employee_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[employee_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_first_name]"
+                      name="DC_first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[first_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_last_name]"
+                      name="DC_last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[last_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_email]"
+                      name="DC_email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_phone_number]"
+                      name="DC_phone_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[phone_number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_hire_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_hire_date]"
+                      name="DC_hire_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[hire_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_job_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_job_id]"
+                      name="DC_job_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[job_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_salary]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_salary]"
+                      name="DC_salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[salary]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_manager_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_manager_id]"
+                      name="DC_manager_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[manager_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_department_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_department_id]"
+                      name="DC_department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[department_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_exp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_exp]"
+                      name="DC_exp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[exp]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\lookup operation\employee"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="employee"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\lookup operation\employee.Connections[FlatFileConnection]"
+                  connectionManagerID="{41AFFA2F-80C5-4908-86BC-6C4917B2237C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Employee_txt_file_conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\lookup operation\employee.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[employee_id]"
+                      name="employee_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[phone_number]"
+                      name="phone_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[hire_date]"
+                      name="hire_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[salary]"
+                      name="salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[manager_id]"
+                      name="manager_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[department_id]"
+                      name="department_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      length="50"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Output].Columns[exp]"
+                      name="exp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[employee_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[phone_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="phone_number" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[hire_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hire_date" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[job_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[salary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[manager_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="manager_id" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[department_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department_id" />
+                    <externalMetadataColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Output].ExternalColumns[exp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="exp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\lookup operation\employee.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\employee.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\lookup operation\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from () [refTable]
+where [refTable].[Copy of department_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Copy of department_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Copy of department_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Copy of location_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_department_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\lookup operation\Lookup.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache Connection Manager]"
+                  description="Connection manager used to access lookup data."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\lookup operation\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\lookup operation\Lookup.Inputs[Lookup Input].Columns[DC_department_id]"
+                      cachedDataType="i4"
+                      cachedName="DC_department_id"
+                      lineageId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output].Columns[DC_department_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Copy of department_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\lookup operation\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\lookup operation\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\Lookup.Outputs[Lookup Match Output].Columns[Copy of department_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\lookup operation\Lookup.Outputs[Lookup Match Output].Columns[Copy of department_name]"
+                      name="Copy of department_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Copy of department_name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\lookup operation\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\lookup operation\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\lookup operation\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\lookup operation\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\lookup operation\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\lookup operation\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\lookup operation\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\lookup operation\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\lookup operation\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\lookup operation\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\lookup operation\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\lookup operation.Paths[Data Conversion Output]"
+              endId="Package\lookup operation\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\lookup operation\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\lookup operation.Paths[Flat File Source Output]"
+              endId="Package\lookup operation\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\lookup operation\employee.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\lookup operation.Paths[Lookup Match Output]"
+              endId="Package\lookup operation\Multicast.Inputs[Multicast Input 1]"
+              name="Lookup Match Output"
+              startId="Package\lookup operation\Lookup.Outputs[Lookup Match Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D75D462-683E-4FE4-A1FA-95D751C7C204}"
+      DTS:From="Package\Cache operation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\lookup operation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\lookup operation"
+          TopLeft="67,116" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Cache operation"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="85.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.5,68.5"
+              Start="0,0"
+              End="61.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.25"
+                    Point2="0,34.25"
+                    Point3="4,34.25" />
+                  <mssgle:LineSegment
+                    End="57.5,34.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.5,34.25"
+                    Point2="61.5,34.25"
+                    Point3="61.5,38.25" />
+                  <mssgle:LineSegment
+                    End="61.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\lookup operation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\lookup operation\Data Conversion"
+          TopLeft="178.5,123.5" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\lookup operation\employee"
+          TopLeft="191.5,45.5" />
+        <EdgeLayout
+          Id="Package\lookup operation.Paths[Flat File Source Output]"
+          TopLeft="257,87.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\lookup operation\Lookup"
+          TopLeft="218.5,207.5" />
+        <EdgeLayout
+          Id="Package\lookup operation.Paths[Data Conversion Output]"
+          TopLeft="259,165.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,42"
+              Start="0,0"
+              End="17,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="13,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,21"
+                    Point2="17,21"
+                    Point3="17,25" />
+                  <mssgle:LineSegment
+                    End="17,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\lookup operation\Multicast"
+          TopLeft="234.5,337.5" />
+        <EdgeLayout
+          Id="Package\lookup operation.Paths[Lookup Match Output]"
+          TopLeft="276,249.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,88"
+              Start="0,0"
+              End="20,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="4,44" />
+                  <mssgle:LineSegment
+                    End="16,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,44"
+                    Point2="20,44"
+                    Point3="20,48" />
+                  <mssgle:LineSegment
+                    End="20,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.0600390625,49,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Cache operation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Cache operation\Excel Source"
+          TopLeft="178.5,19.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Cache operation\Data Conversion"
+          TopLeft="180.5,134.5" />
+        <EdgeLayout
+          Id="Package\Cache operation.Paths[Excel Source Output]"
+          TopLeft="250.5,61.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,73"
+              Start="0,0"
+              End="10.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="6.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,36.5"
+                    Point2="10.5,36.5"
+                    Point3="10.5,40.5" />
+                  <mssgle:LineSegment
+                    End="10.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Cache operation\Cache Transform"
+          TopLeft="178,267" />
+        <EdgeLayout
+          Id="Package\Cache operation.Paths[Data Conversion Output]"
+          TopLeft="260.5,176.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.5"
+              Start="0,0"
+              End="0,83">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cache operation\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\lookup operation\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
