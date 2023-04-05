@@ -1,0 +1,1906 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/6/2023 8:15:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{4C6AAFE4-C852-4283-AF71-35A55C896577}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="19 Row and percentage sampling"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{DA119F7E-28BA-4DF5-8215-F276D61D411B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\perce3ntage sampling"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{07f2757c-f59a-4e9b-8f79-c23cd6b84cd2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="perce3ntage sampling"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\perce3ntage sampling\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\perce3ntage sampling\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{5BDDC7D4-9D21-496C-8F25-579352E52ACD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[us election data csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[County2012Id]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]"
+                      name="County2012Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateCode]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyName]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]"
+                      name="CountyName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyNumber]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]"
+                      name="CountyNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FipsCode]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]"
+                      name="FipsCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecintsReporting]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalPrecincts]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyTotalVotes]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SourceOrder]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]"
+                      name="SourceOrder"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Party]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]"
+                      name="Party"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Votes]"
+                      length="50"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]"
+                      name="Votes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="County2012Id" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyName" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyNumber" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FipsCode" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrecintsReporting" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalPrecincts" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyTotalVotes" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SourceOrder" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Party" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Votes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\perce3ntage sampling\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\perce3ntage sampling\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\perce3ntage sampling\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\perce3ntage sampling\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\perce3ntage sampling\Multicast 1"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\perce3ntage sampling\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\perce3ntage sampling\Multicast 1.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\perce3ntage sampling\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\perce3ntage sampling\Percentage Sampling"
+              componentClassID="Microsoft.PctSampling"
+              contactInfo="Percentage Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a percentage of rows from an input data flow. For example, use it twice to help create a data mining model: create one sample for training the model and another sample for testing the model."
+              name="Percentage Sampling">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage size of the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">20</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\perce3ntage sampling\Percentage Sampling.Inputs[Percentage Sampling Input 1]"
+                  name="Percentage Sampling Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\perce3ntage sampling\Percentage Sampling.Outputs[Sampling Selected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Selected Output"
+                  synchronousInputId="Package\perce3ntage sampling\Percentage Sampling.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\perce3ntage sampling\Percentage Sampling.Outputs[Sampling Unselected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Unselected Output"
+                  synchronousInputId="Package\perce3ntage sampling\Percentage Sampling.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\perce3ntage sampling.Paths[Flat File Source Output]"
+              endId="Package\perce3ntage sampling\Percentage Sampling.Inputs[Percentage Sampling Input 1]"
+              name="Flat File Source Output"
+              startId="Package\perce3ntage sampling\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\perce3ntage sampling.Paths[Sampling Selected Output]"
+              endId="Package\perce3ntage sampling\Multicast.Inputs[Multicast Input 1]"
+              name="Sampling Selected Output"
+              startId="Package\perce3ntage sampling\Percentage Sampling.Outputs[Sampling Selected Output]" />
+            <path
+              refId="Package\perce3ntage sampling.Paths[Sampling Unselected Output]"
+              endId="Package\perce3ntage sampling\Multicast 1.Inputs[Multicast Input 1]"
+              name="Sampling Unselected Output"
+              startId="Package\perce3ntage sampling\Percentage Sampling.Outputs[Sampling Unselected Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\row sampling"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2C28FA25-3E35-4D86-A6F3-6891FFBD30AA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="row sampling"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\row sampling\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\row sampling\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{5BDDC7D4-9D21-496C-8F25-579352E52ACD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[us election data csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[County2012Id]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]"
+                      name="County2012Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateCode]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyName]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]"
+                      name="CountyName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyNumber]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]"
+                      name="CountyNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FipsCode]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]"
+                      name="FipsCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecintsReporting]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalPrecincts]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyTotalVotes]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SourceOrder]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]"
+                      name="SourceOrder"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Party]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]"
+                      name="Party"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Votes]"
+                      length="50"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]"
+                      name="Votes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="County2012Id" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyName" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyNumber" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FipsCode" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrecintsReporting" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TotalPrecincts" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountyTotalVotes" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SourceOrder" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Party" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Votes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\row sampling\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\row sampling\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\row sampling\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\row sampling\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\row sampling\Multicast 1"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\row sampling\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\row sampling\Multicast 1.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\row sampling\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\row sampling\Row Sampling"
+              componentClassID="Microsoft.RowSampling"
+              contactInfo="Row Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a specific number of rows from an input data flow. For example, use it randomly select products to feature on your Web site."
+              name="Row Sampling">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of rows in the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1]"
+                  name="Row Sampling Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[County2012Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="County2012Id"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StateCode"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[CountyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CountyName"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[CountyNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CountyNumber"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[FipsCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FipsCode"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[PrecintsReporting]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PrecintsReporting"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[TotalPrecincts]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TotalPrecincts"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[CountyTotalVotes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CountyTotalVotes"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[SourceOrder]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SourceOrder"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[Party]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Party"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1].Columns[Votes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Votes"
+                      lineageId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output]"
+                  name="Sampling Selected Output">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[County2012Id]"
+                      name="County2012Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[StateCode]"
+                      name="StateCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyName]"
+                      name="CountyName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyNumber]"
+                      name="CountyNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[FipsCode]"
+                      name="FipsCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[SourceOrder]"
+                      name="SourceOrder">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[Party]"
+                      name="Party">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output].Columns[Votes]"
+                      name="Votes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output]"
+                  name="Sampling Unselected Output">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[County2012Id]"
+                      name="County2012Id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[County2012Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[StateCode]"
+                      name="StateCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[StateCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyName]"
+                      name="CountyName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyNumber]"
+                      name="CountyNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[FipsCode]"
+                      name="FipsCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FipsCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[PrecintsReporting]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[TotalPrecincts]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[CountyTotalVotes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[SourceOrder]"
+                      name="SourceOrder">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[SourceOrder]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[Party]"
+                      name="Party">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Party]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output].Columns[Votes]"
+                      name="Votes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\row sampling\Flat File Source.Outputs[Flat File Source Output].Columns[Votes]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\row sampling.Paths[Flat File Source Output]"
+              endId="Package\row sampling\Row Sampling.Inputs[Row Sampling Input 1]"
+              name="Flat File Source Output"
+              startId="Package\row sampling\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\row sampling.Paths[Sampling Selected Output]"
+              endId="Package\row sampling\Multicast.Inputs[Multicast Input 1]"
+              name="Sampling Selected Output"
+              startId="Package\row sampling\Row Sampling.Outputs[Sampling Selected Output]" />
+            <path
+              refId="Package\row sampling.Paths[Sampling Unselected Output]"
+              endId="Package\row sampling\Multicast 1.Inputs[Multicast Input 1]"
+              name="Sampling Unselected Output"
+              startId="Package\row sampling\Row Sampling.Outputs[Sampling Unselected Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\row sampling"
+          TopLeft="234.5,87.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\perce3ntage sampling"
+          TopLeft="203.5,186.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\row sampling">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\row sampling\Flat File Source"
+          TopLeft="180.5,30.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\row sampling\Row Sampling"
+          TopLeft="205.5,136.5" />
+        <EdgeLayout
+          Id="Package\row sampling.Paths[Flat File Source Output]"
+          TopLeft="258.5,72.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,64"
+              Start="0,0"
+              End="22,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="18,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,32"
+                    Point2="22,32"
+                    Point3="22,36" />
+                  <mssgle:LineSegment
+                    End="22,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\row sampling\Multicast"
+          TopLeft="70.5,308.5" />
+        <EdgeLayout
+          Id="Package\row sampling.Paths[Sampling Selected Output]"
+          TopLeft="280.5,178.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-148.5,130"
+              Start="0,0"
+              End="-148.5,122.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61"
+                    Point2="0,65"
+                    Point3="-4,65" />
+                  <mssgle:LineSegment
+                    End="-144.5,65" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144.5,65"
+                    Point2="-148.5,65"
+                    Point3="-148.5,69" />
+                  <mssgle:LineSegment
+                    End="-148.5,122.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-132.19205078125,70,115.8841015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="132,42"
+          Id="Package\row sampling\Multicast 1"
+          TopLeft="402.5,301.5" />
+        <EdgeLayout
+          Id="Package\row sampling.Paths[Sampling Unselected Output]"
+          TopLeft="304.166666666667,178.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.333333333333,123"
+              Start="0,0"
+              End="164.333333333333,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.9788918205805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.9788918205805"
+                    Point2="0,49.9788918205805"
+                    Point3="4,49.9788918205805" />
+                  <mssgle:LineSegment
+                    End="160.333333333333,49.9788918205805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="160.333333333333,49.9788918205805"
+                    Point2="164.333333333333,49.9788918205805"
+                    Point3="164.333333333333,53.9788918205805" />
+                  <mssgle:LineSegment
+                    End="164.333333333333,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.7096158854167,54.9788918205805,126.9141015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\perce3ntage sampling">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\perce3ntage sampling\Multicast"
+          TopLeft="70.5,308.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\perce3ntage sampling\Flat File Source"
+          TopLeft="221.5,34.5" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\perce3ntage sampling\Multicast 1"
+          TopLeft="402.5,301.5" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\perce3ntage sampling\Percentage Sampling"
+          TopLeft="202.5,152.5" />
+        <EdgeLayout
+          Id="Package\perce3ntage sampling.Paths[Flat File Source Output]"
+          TopLeft="297,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\perce3ntage sampling.Paths[Sampling Selected Output]"
+          TopLeft="294.5,194.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.5,114"
+              Start="0,0"
+              End="-162.5,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53"
+                    Point2="0,57"
+                    Point3="-4,57" />
+                  <mssgle:LineSegment
+                    End="-158.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.5,57"
+                    Point2="-162.5,57"
+                    Point3="-162.5,61" />
+                  <mssgle:LineSegment
+                    End="-162.5,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-139.19205078125,62,115.8841015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\perce3ntage sampling.Paths[Sampling Unselected Output]"
+          TopLeft="323.833333333333,194.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144.666666666667,107"
+              Start="0,0"
+              End="144.666666666667,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3534482758621" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.3534482758621"
+                    Point2="0,43.3534482758621"
+                    Point3="4,43.3534482758621" />
+                  <mssgle:LineSegment
+                    End="140.666666666667,43.3534482758621" />
+                  <mssgle:CubicBezierSegment
+                    Point1="140.666666666667,43.3534482758621"
+                    Point2="144.666666666667,43.3534482758621"
+                    Point3="144.666666666667,47.3534482758621" />
+                  <mssgle:LineSegment
+                    End="144.666666666667,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.87628255208333,48.3534482758621,126.9141015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

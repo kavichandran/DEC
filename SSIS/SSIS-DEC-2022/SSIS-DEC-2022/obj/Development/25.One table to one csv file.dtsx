@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2023 7:15:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{DC2092DD-3FAF-4F7A-AF5C-4A93EB7928D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="25 One table to one csv file"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{960ED359-4EDC-4239-ABAA-DD1C27DA091D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[dest_geo]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{60565D72-997B-4D0C-AAB6-04A06018E891}"
+      DTS:ObjectName="dest_geo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\geo.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="anzsic06"
+              DTS:DTSID="{C12CE615-8145-4D16-B5FF-A11711B0126C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Area"
+              DTS:DTSID="{41D52C7A-68FB-453D-910D-1DE643F51148}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="year"
+              DTS:DTSID="{7EFA5C0D-FAA4-474F-854B-30D48670F300}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo_count"
+              DTS:DTSID="{807756AA-E71F-48EF-AAF8-106B9BBEC4EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ec_count"
+              DTS:DTSID="{64125305-DBE2-4EEA-9FE9-6B5677B5D7D7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\one table to one CSV"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FE6A2763-5587-4EC7-8212-A46583D07A97}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="one table to one CSV"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\one table to one CSV\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\one table to one CSV\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[dest_geo]"
+                  connectionManagerRefId="Package.ConnectionManagers[dest_geo]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[anzsic06]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="anzsic06"
+                      externalMetadataColumnId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[anzsic06]"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]" />
+                    <inputColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[Area]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Area]"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]" />
+                    <inputColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[year]"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                    <inputColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[geo_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="geo_count"
+                      externalMetadataColumnId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[geo_count]"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]" />
+                    <inputColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].Columns[ec_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ec_count"
+                      externalMetadataColumnId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ec_count]"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[anzsic06]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="anzsic06" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[geo_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo_count" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ec_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ec_count" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\one table to one CSV\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[geo_Data_csv]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\one table to one CSV\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[anzsic06]"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[anzsic06]"
+                      name="anzsic06"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geo_count]"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[geo_count]"
+                      name="geo_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ec_count]"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].Columns[ec_count]"
+                      name="ec_count"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[anzsic06]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="anzsic06" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geo_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo_count" />
+                    <externalMetadataColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ec_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ec_count" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[anzsic06]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[anzsic06]"
+                      name="anzsic06" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geo_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geo_count]"
+                      name="geo_count" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ec_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ec_count]"
+                      name="ec_count" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\one table to one CSV.Paths[OLE DB Source Output]"
+              endId="Package\one table to one CSV\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\one table to one CSV\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\one table to one CSV"
+          TopLeft="136.5,83.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\one table to one CSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\one table to one CSV\OLE DB Source"
+          TopLeft="217.5,35.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\one table to one CSV\Flat File Destination"
+          TopLeft="235.5,214.5" />
+        <EdgeLayout
+          Id="Package\one table to one CSV.Paths[OLE DB Source Output]"
+          TopLeft="296,77.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,137"
+              Start="0,0"
+              End="27.5,129.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.5"
+                    Point2="0,68.5"
+                    Point3="4,68.5" />
+                  <mssgle:LineSegment
+                    End="23.5,68.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,68.5"
+                    Point2="27.5,68.5"
+                    Point3="27.5,72.5" />
+                  <mssgle:LineSegment
+                    End="27.5,129.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\one table to one CSV\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

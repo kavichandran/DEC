@@ -1,0 +1,3274 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/21/2023 7:39:56 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="KAVICHANDRAN"
+  DTS:CreatorName="KAVICHANDRAN\kavichandran"
+  DTS:DTSID="{EAEC1922-5EE2-41BF-8877-8BA0C5E907CC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="12 Loading with sort transformation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{CB3F5F28-4BBF-4593-A8E4-FA4E4E4616B7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[atheletedata\]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{18C3A6A3-947D-4AD0-AE59-DE0EB936AB57}"
+      DTS:ObjectName="atheletedata\">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Onlineclasss\SSIS-DEC-2022\Sources\sampledatawinterathletes.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{979AE6C6-AE7F-4FFC-8EA5-845D224E32B8}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Onlineclasss\SSIS-DEC-2022\dest\Athelete_xlsx_dest.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8BF34AB2-1D6C-498B-AB73-7C1559B8CE05}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\athelete.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of County2012Id"
+              DTS:DTSID="{1683F1EE-827A-4FB2-9868-BA52A80D854C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of StateCode"
+              DTS:DTSID="{37B706D5-3DB1-4AC4-88A3-146789BE44C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyName"
+              DTS:DTSID="{1655046A-1BA8-4704-BC49-8A99BB463D81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyNumber"
+              DTS:DTSID="{FBED84E3-467C-4A8B-8A7B-881CFE734096}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of FipsCode"
+              DTS:DTSID="{C133595A-CC66-4616-83B0-E20837ECB97A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of PrecintsReporting"
+              DTS:DTSID="{238AC729-BDB4-45D5-84DB-639F90A37339}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of TotalPrecincts"
+              DTS:DTSID="{C39C69C8-5244-432F-A977-BADFFF09B6DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyTotalVotes"
+              DTS:DTSID="{8905E8DD-0B2A-457C-A042-7846205904DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of SourceOrder"
+              DTS:DTSID="{22CF5C43-C36D-4716-B6E0-CE0D2E5C6943}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Party"
+              DTS:DTSID="{635F39BF-F0DD-446C-86A3-C79CBDD0B251}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of FirstName"
+              DTS:DTSID="{E79D78E1-6E52-413B-9204-C97A10EFA079}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of LastName"
+              DTS:DTSID="{7401CFA2-1F7E-43ED-9516-D0291FF974DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Votes"
+              DTS:DTSID="{E381237C-B3A7-43AB-BD6B-E29C5EC1213D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4F22089A-FBAD-4A05-A5C7-30FEA7613082}"
+      DTS:ObjectName="txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\athelete.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="2"
+              DTS:DTSID="{2B110E68-53ED-45CD-9531-EEFBFB41C5FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AK"
+              DTS:DTSID="{F22AAAF4-FCD1-4903-8C2B-92F239998B5D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Alaska"
+              DTS:DTSID="{A3303BC9-E4C4-466E-963C-4C74951AE10A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="2001"
+              DTS:DTSID="{2B2D1595-846A-4642-A183-04A2A0D1D146}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="2000"
+              DTS:DTSID="{FEF170C2-DFCC-4485-A10A-4CDF57866B1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="437"
+              DTS:DTSID="{8314498A-1432-46BF-9808-997FE6A5BE17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="438"
+              DTS:DTSID="{E33C7252-7320-49BC-A14F-93C05D4FC441}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="220596"
+              DTS:DTSID="{F33FF70E-6BCB-464B-B3A7-47465864130C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="1"
+              DTS:DTSID="{C8F5C19C-F846-4CEE-9703-915E179359FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dem"
+              DTS:DTSID="{B5763CF1-60AD-4FD0-BA18-B85FA01D3ACD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Barack"
+              DTS:DTSID="{EFA573C2-D178-4A31-A388-09421746F28A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Obama"
+              DTS:DTSID="{26BE2D71-0F84-4FFE-B1EC-8620F151780D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="91696"
+              DTS:DTSID="{3010B3C7-5D2D-4BAD-8579-E905D54C965F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[txt1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{535C6E7B-F2A0-48D7-B562-875BF7D4564D}"
+      DTS:ObjectName="txt1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Onlineclasss\SSIS-DEC-2022\dest\athelete1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of County2012Id"
+              DTS:DTSID="{BB59CFE0-B159-41EB-8EAD-61662E20A20C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of StateCode"
+              DTS:DTSID="{AAA45B97-DBD1-4D41-AB7D-3AB0C2136B4A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyName"
+              DTS:DTSID="{36D1E191-DFE1-4819-A2BE-930223CA12E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyNumber"
+              DTS:DTSID="{B7403045-7262-4FEC-B2F9-ABAD82861C54}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of FipsCode"
+              DTS:DTSID="{ADB71C51-2F16-4AB8-9ABE-A724EBC066EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of PrecintsReporting"
+              DTS:DTSID="{5A5B1EE3-52F7-4733-B0AB-835307E5CC92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of TotalPrecincts"
+              DTS:DTSID="{234374D8-C5D5-4F4E-85C1-8F041686B626}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of CountyTotalVotes"
+              DTS:DTSID="{4F1D3A76-EC60-4495-A5B2-89794CF5EA46}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of SourceOrder"
+              DTS:DTSID="{D8EC17E1-B67E-4C97-84B0-B483AF902C15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Party"
+              DTS:DTSID="{F91A44F2-964F-4D49-8A9A-BABDDD0BD1AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of FirstName"
+              DTS:DTSID="{3DC493B7-303F-48C8-B488-88CF413C0BFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of LastName"
+              DTS:DTSID="{10C9393A-68AE-428E-963E-ACCD41B2EF4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Copy of Votes"
+              DTS:DTSID="{A3D881AA-2063-4C24-88F2-07069A5232EC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Loading the data to Excel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7A4FEAE3-1DCD-4C40-9068-58499ACED86E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading the data to Excel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading the data to Excel\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input].Columns[Null_falg]"
+                      cachedDataType="bool"
+                      cachedName="Null_falg"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Null_falg]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Null_falg]} ==  FALSE </property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Null_falg ==  FALSE </property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading the data to Excel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Sport]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Sport"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Sport]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Nationality]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nationality"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Nationality]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Age]"
+                      cachedDataType="r8"
+                      cachedName="Age"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Wt kg]"
+                      cachedDataType="r8"
+                      cachedName="Wt kg"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Wt kg]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input].Columns[Ht]"
+                      cachedDataType="r8"
+                      cachedName="Ht"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Ht]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                      name="Copy of Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sport]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sport]"
+                      name="Copy of Sport"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Sport]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nationality]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nationality]"
+                      name="Copy of Nationality"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Nationality]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Age]"
+                      name="Copy of Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wt kg]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wt kg]"
+                      name="Copy of Wt kg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Wt kg]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ht]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ht]"
+                      name="Copy of Ht"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Ht]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading the data to Excel\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input].Columns[Copy of Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Name"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input].Columns[Copy of Sport]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Sport"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sport]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input].Columns[Copy of Nationality]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Nationality"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nationality]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RTRIM]([LTRIM](#{Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM(LTRIM([Copy of Name]))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RTRIM]([LTRIM](#{Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sport]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM(LTRIM([Copy of Sport]))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 3]"
+                      name="Derived Column 3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RTRIM]([LTRIM](#{Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nationality]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM(LTRIM([Copy of Nationality]))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Null_falg]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output].Columns[Null_falg]"
+                      name="Null_falg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL([Copy of Name])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading the data to Excel\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [Athletes$A3:FF]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading the data to Excel\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[atheletedata\]"
+                  connectionManagerRefId="Package.ConnectionManagers[atheletedata\]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Sport]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sport]"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Sport]"
+                      name="Sport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Nationality]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Nationality]"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Nationality]"
+                      name="Nationality"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Age]"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Wt kg]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Wt kg]"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Wt kg]"
+                      name="Wt kg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Ht]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ht]"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Ht]"
+                      name="Ht"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sport]"
+                      dataType="wstr"
+                      length="255"
+                      name="Sport" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Nationality]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nationality" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Age]"
+                      dataType="r8"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Wt kg]"
+                      dataType="r8"
+                      name="Wt kg" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ht]"
+                      dataType="r8"
+                      name="Ht" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Sport]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Sport]"
+                      name="Sport" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Nationality]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Nationality]"
+                      name="Nationality" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Age]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Wt kg]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Wt kg]"
+                      name="Wt kg" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Ht]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[Ht]"
+                      name="Ht" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading the data to Excel\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Athelete_xlsx]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading the data to Excel\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Name"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Sport]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Sport"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sport]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sport]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Nationality]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Nationality"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nationality]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nationality]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Age]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Age"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Age]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Wt kg]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Wt kg"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wt kg]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Wt kg]" />
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Ht]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Ht"
+                      externalMetadataColumnId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ht]"
+                      lineageId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Ht]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sport" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nationality]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nationality" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="i4"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wt kg]"
+                      dataType="i4"
+                      name="Wt kg" />
+                    <externalMetadataColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ht]"
+                      dataType="i4"
+                      name="Ht" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading the data to Excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading the data to Excel\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Sport]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Sport"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Sport]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Nationality]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nationality"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Nationality]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Age]"
+                      cachedDataType="r8"
+                      cachedName="Age"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Age]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Wt kg]"
+                      cachedDataType="r8"
+                      cachedName="Wt kg"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Wt kg]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading the data to Excel\Sort.Inputs[Sort Input].Columns[Ht]"
+                      cachedDataType="r8"
+                      cachedName="Ht"
+                      lineageId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Ht]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Sport]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Sport]"
+                      name="Sport">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Sport]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Nationality]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Nationality]"
+                      name="Nationality">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Nationality]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Age]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Age]"
+                      name="Age">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Age]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Wt kg]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Wt kg]"
+                      name="Wt kg">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Wt kg]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Ht]"
+                      dataType="r8"
+                      lineageId="Package\Loading the data to Excel\Sort.Outputs[Sort Output].Columns[Ht]"
+                      name="Ht">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output].Columns[Ht]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading the data to Excel.Paths[Case 1]"
+              endId="Package\Loading the data to Excel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\Loading the data to Excel\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\Loading the data to Excel.Paths[Data Conversion Output]"
+              endId="Package\Loading the data to Excel\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Loading the data to Excel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Loading the data to Excel.Paths[Derived Column Output]"
+              endId="Package\Loading the data to Excel\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Loading the data to Excel\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Loading the data to Excel.Paths[Excel Source Output]"
+              endId="Package\Loading the data to Excel\Sort.Inputs[Sort Input]"
+              name="Excel Source Output"
+              startId="Package\Loading the data to Excel\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Loading the data to Excel.Paths[Sort Output]"
+              endId="Package\Loading the data to Excel\Data Conversion.Inputs[Data Conversion Input]"
+              name="Sort Output"
+              startId="Package\Loading the data to Excel\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL to excel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CA4C9446-D068-47FA-BBFD-A1EAB96D0F8D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL to excel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SQL to excel\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[County2012Id]"
+                      cachedDataType="i4"
+                      cachedName="County2012Id"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[County2012Id]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="StateCode"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[CountyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="CountyName"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[CountyNumber]"
+                      cachedDataType="i4"
+                      cachedName="CountyNumber"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyNumber]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[FipsCode]"
+                      cachedDataType="i4"
+                      cachedName="FipsCode"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FipsCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[PrecintsReporting]"
+                      cachedDataType="i4"
+                      cachedName="PrecintsReporting"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrecintsReporting]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[TotalPrecincts]"
+                      cachedDataType="i4"
+                      cachedName="TotalPrecincts"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalPrecincts]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[CountyTotalVotes]"
+                      cachedDataType="i8"
+                      cachedName="CountyTotalVotes"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyTotalVotes]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[SourceOrder]"
+                      cachedDataType="i4"
+                      cachedName="SourceOrder"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceOrder]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[Party]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Party"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Party]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="FirstName"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="LastName"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input].Columns[Votes]"
+                      cachedDataType="i8"
+                      cachedName="Votes"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Votes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of County2012Id]"
+                      name="Copy of County2012Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[County2012Id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]"
+                      name="Copy of StateCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyName]"
+                      name="Copy of CountyName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyNumber]"
+                      name="Copy of CountyNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FipsCode]"
+                      name="Copy of FipsCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FipsCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PrecintsReporting]"
+                      name="Copy of PrecintsReporting"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrecintsReporting]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalPrecincts]"
+                      name="Copy of TotalPrecincts"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalPrecincts]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyTotalVotes]"
+                      name="Copy of CountyTotalVotes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyTotalVotes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceOrder]"
+                      name="Copy of SourceOrder"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceOrder]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Party]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Party]"
+                      name="Copy of Party"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Party]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      name="Copy of FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      name="Copy of LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Votes]"
+                      name="Copy of Votes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Votes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL to excel\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL to excel\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[txt1]"
+                  connectionManagerRefId="Package.ConnectionManagers[txt1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of County2012Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of County2012Id"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of County2012Id]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of County2012Id]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of StateCode"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of StateCode]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of CountyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of CountyNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyNumber"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyNumber]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyNumber]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of FipsCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of FipsCode"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of FipsCode]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FipsCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of PrecintsReporting]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of PrecintsReporting"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of PrecintsReporting]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PrecintsReporting]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of TotalPrecincts]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of TotalPrecincts"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of TotalPrecincts]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalPrecincts]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of CountyTotalVotes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyTotalVotes"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyTotalVotes]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyTotalVotes]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of SourceOrder]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of SourceOrder"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of SourceOrder]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceOrder]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Party]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of Party"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of Party]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Party]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of FirstName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of FirstName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of LastName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of LastName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Votes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of Votes"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of Votes]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Votes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of County2012Id" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of FipsCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of PrecintsReporting" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of TotalPrecincts" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyTotalVotes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of SourceOrder" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of Party" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of LastName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Copy of Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of Votes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\SQL to excel\Flat File Destination 1"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL to excel\Flat File Destination 1.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of County2012Id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of County2012Id"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of County2012Id]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of County2012Id]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of StateCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of StateCode"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of StateCode]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StateCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of CountyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of CountyNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyNumber"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyNumber]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyNumber]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of FipsCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of FipsCode"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of FipsCode]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FipsCode]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of PrecintsReporting]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of PrecintsReporting"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of PrecintsReporting]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PrecintsReporting]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of TotalPrecincts]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of TotalPrecincts"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of TotalPrecincts]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TotalPrecincts]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of CountyTotalVotes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of CountyTotalVotes"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyTotalVotes]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CountyTotalVotes]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of SourceOrder]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of SourceOrder"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of SourceOrder]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceOrder]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of Party]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of Party"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of Party]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Party]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of FirstName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of FirstName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of LastName"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of LastName]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]" />
+                    <inputColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[Copy of Votes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of Votes"
+                      externalMetadataColumnId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of Votes]"
+                      lineageId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Votes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of County2012Id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of County2012Id" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of FipsCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of FipsCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of PrecintsReporting]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of PrecintsReporting" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of TotalPrecincts]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of TotalPrecincts" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of CountyTotalVotes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of CountyTotalVotes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of SourceOrder]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of SourceOrder" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of Party" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of LastName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[Copy of Votes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Copy of Votes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\SQL to excel\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\SQL to excel\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL to excel\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\SQL to excel\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL to excel\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\SQL to excel\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL to excel\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\SQL to excel\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL to excel\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Election_data_converted]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL to excel\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{38DAAF22-DCA2-4C54-AEA1-1E0F04D3DBED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DEC-SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[County2012Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[County2012Id]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[County2012Id]"
+                      name="County2012Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyName]"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyName]"
+                      name="CountyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyNumber]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyNumber]"
+                      name="CountyNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FipsCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FipsCode]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FipsCode]"
+                      name="FipsCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrecintsReporting]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrecintsReporting]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalPrecincts]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalPrecincts]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyTotalVotes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyTotalVotes]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceOrder]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceOrder]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceOrder]"
+                      name="SourceOrder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Party]"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Party]"
+                      name="Party"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Votes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Votes]"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].Columns[Votes]"
+                      name="Votes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[County2012Id]"
+                      dataType="i4"
+                      name="County2012Id" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CountyName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyNumber]"
+                      dataType="i4"
+                      name="CountyNumber" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FipsCode]"
+                      dataType="i4"
+                      name="FipsCode" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrecintsReporting]"
+                      dataType="i4"
+                      name="PrecintsReporting" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalPrecincts]"
+                      dataType="i4"
+                      name="TotalPrecincts" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountyTotalVotes]"
+                      dataType="i8"
+                      name="CountyTotalVotes" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceOrder]"
+                      dataType="i4"
+                      name="SourceOrder" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Party" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Votes]"
+                      dataType="i8"
+                      name="Votes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[County2012Id]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[County2012Id]"
+                      name="County2012Id" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyName]"
+                      name="CountyName" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyNumber]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyNumber]"
+                      name="CountyNumber" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FipsCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FipsCode]"
+                      name="FipsCode" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrecintsReporting]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrecintsReporting]"
+                      name="PrecintsReporting" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalPrecincts]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalPrecincts]"
+                      name="TotalPrecincts" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyTotalVotes]"
+                      dataType="i8"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountyTotalVotes]"
+                      name="CountyTotalVotes" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceOrder]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceOrder]"
+                      name="SourceOrder" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Party]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Party]"
+                      name="Party" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Votes]"
+                      dataType="i8"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Votes]"
+                      name="Votes" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SQL to excel.Paths[Data Conversion Output]"
+              endId="Package\SQL to excel\Multicast.Inputs[Multicast Input 1]"
+              name="Data Conversion Output"
+              startId="Package\SQL to excel\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\SQL to excel.Paths[Multicast Output 1]"
+              endId="Package\SQL to excel\Flat File Destination 1.Inputs[Flat File Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\SQL to excel\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\SQL to excel.Paths[Multicast Output 2]"
+              endId="Package\SQL to excel\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\SQL to excel\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\SQL to excel.Paths[OLE DB Source Output]"
+              endId="Package\SQL to excel\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\SQL to excel\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Loading the data to Excel"
+          TopLeft="107.5,71.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\SQL to excel"
+          TopLeft="127.5,236.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loading the data to Excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Loading the data to Excel\Data Conversion"
+          TopLeft="253.5,126.055555555556" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Loading the data to Excel\OLE DB Destination"
+          TopLeft="180.388888888889,363.944444444444" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loading the data to Excel\Derived Column"
+          TopLeft="273.722222222222,196.166666666667" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Loading the data to Excel\Excel Source"
+          TopLeft="196.5,42.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Loading the data to Excel\Conditional Split"
+          TopLeft="286.277777777778,263.5" />
+        <EdgeLayout
+          Id="Package\Loading the data to Excel.Paths[Case 1]"
+          TopLeft="365.777777777778,305.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-96.8888888888889,58.4444444444445"
+              Start="0,0"
+              End="-96.8888888888889,50.9444444444445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.2222222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.2222222222222"
+                    Point2="0,29.2222222222222"
+                    Point3="-4,29.2222222222222" />
+                  <mssgle:LineSegment
+                    End="-92.8888888888889,29.2222222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-92.8888888888889,29.2222222222222"
+                    Point2="-96.8888888888889,29.2222222222222"
+                    Point3="-96.8888888888889,33.2222222222222" />
+                  <mssgle:LineSegment
+                    End="-96.8888888888889,50.9444444444445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.6625303819445,34.2222222222222,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading the data to Excel.Paths[Derived Column Output]"
+          TopLeft="352.722222222222,238.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.0555555555555,25.3333333333333"
+              Start="0,0"
+              End="13.0555555555555,17.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.66666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.66666666666667"
+                    Point2="0,12.6666666666667"
+                    Point3="4,12.6666666666667" />
+                  <mssgle:LineSegment
+                    End="9.05555555555554,12.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.05555555555554,12.6666666666667"
+                    Point2="13.0555555555555,12.6666666666667"
+                    Point3="13.0555555555555,16.6666666666667" />
+                  <mssgle:LineSegment
+                    End="13.0555555555555,17.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading the data to Excel.Paths[Data Conversion Output]"
+          TopLeft="334,168.055555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.7222222222222,28.1111111111111"
+              Start="0,0"
+              End="18.7222222222222,20.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.0555555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.0555555555555"
+                    Point2="0,14.0555555555555"
+                    Point3="4,14.0555555555555" />
+                  <mssgle:LineSegment
+                    End="14.7222222222222,14.0555555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.7222222222222,14.0555555555555"
+                    Point2="18.7222222222222,14.0555555555555"
+                    Point3="18.7222222222222,18.0555555555555" />
+                  <mssgle:LineSegment
+                    End="18.7222222222222,20.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Loading the data to Excel\Sort"
+          TopLeft="122,137" />
+        <EdgeLayout
+          Id="Package\Loading the data to Excel.Paths[Excel Source Output]"
+          TopLeft="268.5,84.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-97,52.5"
+              Start="0,0"
+              End="-97,45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.25"
+                    Point2="0,26.25"
+                    Point3="-4,26.25" />
+                  <mssgle:LineSegment
+                    End="-93,26.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-93,26.25"
+                    Point2="-97,26.25"
+                    Point3="-97,30.25" />
+                  <mssgle:LineSegment
+                    End="-97,45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading the data to Excel.Paths[Sort Output]"
+          TopLeft="221,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,-10.944444444444"
+              Start="0,0"
+              End="25,-10.944444444444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.25,0"
+                    Point2="16.25,0"
+                    Point3="16.25,-4" />
+                  <mssgle:LineSegment
+                    End="16.25,-6.944444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.25,-6.944444444444"
+                    Point2="16.25,-10.944444444444"
+                    Point3="20.25,-10.944444444444" />
+                  <mssgle:LineSegment
+                    End="25,-10.944444444444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading the data to Excel\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading the data to Excel\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SQL to excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SQL to excel\OLE DB Source"
+          TopLeft="91.5,28" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\SQL to excel\Multicast"
+          TopLeft="160.5,184" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\SQL to excel\Data Conversion"
+          TopLeft="91.5,90" />
+        <EdgeLayout
+          Id="Package\SQL to excel.Paths[OLE DB Source Output]"
+          TopLeft="91.5,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="-7.5,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,58"
+                    Point2="-22.5,62"
+                    Point3="-18.5,62" />
+                  <mssgle:LineSegment
+                    End="-7.5,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL to excel.Paths[Data Conversion Output]"
+          TopLeft="172,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,52"
+              Start="0,0"
+              End="50,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="46,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,26"
+                    Point2="50,26"
+                    Point3="50,30" />
+                  <mssgle:LineSegment
+                    End="50,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SQL to excel\Flat File Destination"
+          TopLeft="1.5,317.5" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\SQL to excel\Flat File Destination 1"
+          TopLeft="397.5,299.5" />
+        <EdgeLayout
+          Id="Package\SQL to excel.Paths[Multicast Output 2]"
+          TopLeft="222,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-132.5,91.5"
+              Start="0,0"
+              End="-132.5,84">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.75"
+                    Point2="0,45.75"
+                    Point3="-4,45.75" />
+                  <mssgle:LineSegment
+                    End="-128.5,45.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-128.5,45.75"
+                    Point2="-132.5,45.75"
+                    Point3="-132.5,49.75" />
+                  <mssgle:LineSegment
+                    End="-132.5,84" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL to excel.Paths[Multicast Output 1]"
+          TopLeft="241.166666666667,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="248.833333333333,73.5"
+              Start="0,0"
+              End="248.833333333333,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9662921348315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9662921348315"
+                    Point2="0,29.9662921348315"
+                    Point3="4,29.9662921348315" />
+                  <mssgle:LineSegment
+                    End="244.833333333333,29.9662921348315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="244.833333333333,29.9662921348315"
+                    Point2="248.833333333333,29.9662921348315"
+                    Point3="248.833333333333,33.9662921348315" />
+                  <mssgle:LineSegment
+                    End="248.833333333333,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL to excel\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
